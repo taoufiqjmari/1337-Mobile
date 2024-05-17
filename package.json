@@ -1,9 +1,9 @@
 {
   "name": "mobilemodule00",
   "version": "1.0.0",
-  "main": "expo/AppEntry.js",
+  "main": "ex00.js",
   "scripts": {
-    "start": "expo start",
+    "start": "expo start --tunnel",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
