@@ -1,5 +1,4 @@
 import { registerRootComponent } from 'expo';
-import { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
