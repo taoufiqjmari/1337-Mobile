@@ -6,27 +6,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-// Screens
-const Currently = ({ location }) => {
+const Screen = ({ title, location }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Currently</Text>
-      <Text style={styles.text}>{location}</Text>
-    </View>
-  );
-};
-const Today = ({ location }) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Today</Text>
-      <Text style={styles.text}>{location}</Text>
-    </View>
-  );
-};
-const Weekly = ({ location }) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Weekly</Text>
+      <Text style={styles.text}>{title}</Text>
       <Text style={styles.text}>{location}</Text>
     </View>
   );
@@ -36,7 +19,7 @@ const SearchBar = ({ setLocation }) => {
   const [text, setText] = useState('');
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.flex}>
       <View style={styles.searchSection}>
         <Icon style={styles.searchIcon} name="search" size={20} />
         <TextInput
@@ -71,7 +54,7 @@ const Home = ({ location }) => {
           tabBarIcon: () => <Icon name="sun-o" size={20} />,
         }}
       >
-        {() => <Currently location={location} />}
+        {() => <Screen title="Currently" location={location} />}
       </Tab.Screen>
       <Tab.Screen
         name="Today"
@@ -79,7 +62,7 @@ const Home = ({ location }) => {
           tabBarIcon: () => <Icon name="calendar-o" size={20} />,
         }}
       >
-        {() => <Today location={location} />}
+        {() => <Screen title="Today" location={location} />}
       </Tab.Screen>
       <Tab.Screen
         name="Weekly"
@@ -87,7 +70,7 @@ const Home = ({ location }) => {
           tabBarIcon: () => <Icon name="calendar" size={20} />,
         }}
       >
-        {() => <Weekly location={location} />}
+        {() => <Screen title="Weekly" location={location} />}
       </Tab.Screen>
     </Tab.Navigator>
   );
@@ -118,6 +101,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
